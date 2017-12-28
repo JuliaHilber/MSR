@@ -15,4 +15,4 @@ for (line in poiData) {
   poiList[[monument]] <- data.frame(terms, tfidfs)
 }
 
-save(poiList, file = "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\data\\poiList.RData")
+save(poiList, file = "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Relevance\\TFIDF\\data\\poiList.RData")

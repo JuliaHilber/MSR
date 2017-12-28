@@ -14,4 +14,4 @@ for (line in imageData) {
   imageDataList[[imageId]] <- data.frame(terms, tfidfs)
 }
 
-save(imageDataList, file = "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\data\\imageList.RData")
+save(imageDataList, file = "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Relevance\\TFIDF\\data\\imageList.RData")
