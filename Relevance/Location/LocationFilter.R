@@ -38,8 +38,8 @@ for(i in 1:length(xml_data)) {
     }
     # calculate similarity
     sim <- 0
-    if(!(is.na(dist)) && dist <= 109) {
-      sim <- cos(dist/70)
+    if(!(is.na(dist)) && dist <= 94) {
+      sim <- cos(dist/60)
     }
     similarity <- append(similarity, sim)
     
