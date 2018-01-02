@@ -1,12 +1,12 @@
 # load some files 
-require(XML)
-require(stringr)
-data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml")
+library(XML)
+library(stringr)
+data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/devset/devset_topics.xml")
 xml_data <- xmlToList(data)
 
 
 # load the result file
-result <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/result.txt")
+result <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Diversity/output/result.txt")
 k <- 50
 
 # some more variables
@@ -25,9 +25,9 @@ for(i in 1:length(xml_data)) {
   number <- data1$topic$number
   
   # load the relevant ground truth of that location
-  gt <- read.table(paste0("/Volumes/My Passport for Mac/div-2014/devset/gt/rGT/", location, " rGT.txt"), sep=",")
-  gt1 <- read.table(paste0("/Volumes/My Passport for Mac/div-2014/devset/gt/dGT/", location, " dclusterGT.txt"), sep=",", quote="")
-  gt2 <- read.table(paste0("/Volumes/My Passport for Mac/div-2014/devset/gt/dGT/", location, " dGT.txt"), sep=",")
+  gt <- read.table(paste0("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\gt\\rGT\\", location, " rGT.txt"), sep=",")
+  gt1 <- read.table(paste0("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\gt\\dGT\\", location, " dclusterGT.txt"), sep=",", quote="")
+  gt2 <- read.table(paste0("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\gt\\dGT\\", location, " dGT.txt"), sep=",")
     
   n <- n + nrow(gt1)
  
@@ -65,6 +65,6 @@ recall <- nc/n
 f1 <- 2*(precision*recall)/(precision+recall)
 
 # print the performance measurements
-precision
-recall
-f1
+print(precision)
+print(recall)
+print(f1)
