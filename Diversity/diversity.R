@@ -7,7 +7,7 @@ xml_data <- xmlToList(data)
 
 # load relevance score file
 #relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/Location/Preprocessing/tfidf_location_SimilarityScores.txt")
-relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/Postprocessing/data/relevancyScores.txt")
+relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/ViewFilter/Processing/SimilarityScores.txt")
 relevance[, 2] <- as.character(relevance[, 2])
 
 #c <- c()
