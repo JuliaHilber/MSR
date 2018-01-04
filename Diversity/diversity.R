@@ -63,7 +63,7 @@ for(i in 1:length(xml_data)) {
   visual <- visual[visual[, 1] %in% relevance[, 2], ]
   
   # k-means
-  k <- 75
+  k <- 50
   kmeans <- kmeans(visual, k)
   
   # take the relevantest photo per cluster, begin with the greatest cluster
@@ -89,7 +89,7 @@ for(i in 1:length(xml_data)) {
       # write in result  file
       
       lines <- rbind(lines,
-                     cbind(number, "0", mostImportantPhoto[1], j, "0", mostImportantPhoto[2]))
+                     cbind(number, "0", mostImportantPhoto[1], j, mostImportantPhoto[2], "0"))
       
       j <- j + 1
     }
