@@ -2,13 +2,13 @@
 library(XML)
 library(stringr)
 
-load("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Relevance\\DistanceCalculation\\data\\sortedImgVisScores.RData")
-load("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Relevance\\TFIDF\\data\\poiList.RData")
+load("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/DistanceCalculation/data/sortedImgVisScores.RData")
+load("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/data/poiList.RData")
 
-data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/devset/devset_topics.xml")
+data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml")
 xml_data <- xmlToList(data)
 
-tfidf <- read.csv("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Relevance\\Location\\Preprocessing\\tfidf_location_SimilarityScores.txt",
+tfidf <- read.csv("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Location/Preprocessing/tfidf_location_SimilarityScores.txt",
                   sep=" ")
 
 
@@ -57,11 +57,11 @@ for (monument in names(poiList)) {
 }
 
 write.table(relevancyScore,
-            file="C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Relevance\\Postprocessing\\data\\relevancyScores.txt",
+            file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Postprocessing/data/relevancyScores.txt",
             append=FALSE,
             col.names=FALSE,
             row.names=FALSE,
             quote=FALSE,
             sep=" ")  
 
-save(relevancyScore, file = "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Relevance\\Postprocessing\\data\\relevancyScores.RData")
+save(relevancyScore, file = "/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Postprocessing/data/relevancyScores.RData")

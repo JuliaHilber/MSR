@@ -5,7 +5,7 @@ data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml
 xml_data <- xmlToList(data)
 
 # output file
-sink("location_filter_result.txt")
+sink("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Location/location_filter_result.txt")
 
 # go over all locations
 for(i in 1:length(xml_data)) {

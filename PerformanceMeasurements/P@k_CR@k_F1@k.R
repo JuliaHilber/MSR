@@ -1,13 +1,13 @@
 # load some files 
 library(XML)
 library(stringr)
-data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/devset/devset_topics.xml")
+data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml")
 xml_data <- xmlToList(data)
 
 
 # load the result file
-result <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Diversity/output/result.txt")
-k <- 20
+result <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Diversity/outputDevset/result.txt")
+k <- 50
 
 # some more variables
 locations <- length(xml_data)
@@ -27,9 +27,9 @@ for(i in 1:length(xml_data)) {
   number <- data1$topic$number
   
   # load the relevant ground truth of that location
-  gt <- read.table(paste0("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\gt\\rGT\\", location, " rGT.txt"), sep=",")
-  gt1 <- read.table(paste0("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\gt\\dGT\\", location, " dclusterGT.txt"), sep=",", quote="")
-  gt2 <- read.table(paste0("C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\gt\\dGT\\", location, " dGT.txt"), sep=",")
+  gt <- read.table(paste0("/Volumes/My Passport for Mac/div-2014/devset/gt/rGT/", location, " rGT.txt"), sep=",")
+  gt1 <- read.table(paste0("/Volumes/My Passport for Mac/div-2014/devset/gt/dGT/", location, " dclusterGT.txt"), sep=",", quote="")
+  gt2 <- read.table(paste0("/Volumes/My Passport for Mac/div-2014/devset/gt/dGT/", location, " dGT.txt"), sep=",")
     
   n <- nrow(gt1)
  

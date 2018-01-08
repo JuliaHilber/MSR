@@ -1,4 +1,4 @@
-location <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/diversity/location_filter_result.txt")
+location <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Location/location_filter_result.txt")
 tfidf <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/similarityScores.txt")
 
 # get only the half of the file
@@ -13,4 +13,4 @@ for(i in 1:nrow(tfidf)) {
   result <- rbind(result, c(tfidf[i, 1], id, sim))
 }
 
-write.table(result, file="tfidf_location_SimilarityScores.txt", row.names = FALSE, col.names = FALSE)
+write.table(result, file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Location/Preprocessing/tfidf_location_SimilarityScores.txt", row.names = FALSE, col.names = FALSE)

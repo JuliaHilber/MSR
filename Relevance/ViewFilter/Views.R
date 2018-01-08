@@ -35,12 +35,12 @@ for(i in 1:length(xml_data)) {
   }
 }
 
-write.table(v, file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/Relevance/views.txt", row.names = FALSE, col.names = FALSE)
+write.table(v, file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/ViewFilter/views.txt", row.names = FALSE, col.names = FALSE)
 
-views <- as.numeric(as.vector(views))
-boxplot(views, ylim=c(0, 500))
+#views <- as.numeric(as.vector(views))
+#boxplot(views, ylim=c(0, 500))
 # max: 87023, min: 0
 
-nbComments <- as.numeric(as.vector(nbComments))
-boxplot(nbComments)
+#nbComments <- as.numeric(as.vector(nbComments))
+#boxplot(nbComments)
 

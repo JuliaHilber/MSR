@@ -1,5 +1,5 @@
 postprocessing <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Postprocessing/data/relevancyScores.txt")
-views <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/Relevance/views.txt")
+views <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/ViewFilter/views.txt")
 
 result <- data.frame()
 
@@ -10,4 +10,4 @@ for(i in 1:nrow(postprocessing)) {
   result <- rbind(result, c(postprocessing[i, 1], id, sim))
 }
 
-write.table(result, file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/Relevance/SimilarityScores.txt", row.names = FALSE, col.names = FALSE)
+write.table(result, file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/ViewFilter/Processing/SimilarityScores.txt", row.names = FALSE, col.names = FALSE)

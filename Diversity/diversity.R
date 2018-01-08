@@ -1,19 +1,22 @@
 # load some files 
 require(XML)
 require(stringr)
-data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/devset/devset_topics.xml")
+#data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/devset/devset_topics.xml")
+data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml")
 xml_data <- xmlToList(data)
 
 
 # load relevance score file
 #relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/Location/Preprocessing/tfidf_location_SimilarityScores.txt")
-relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/ViewFilter/Processing/SimilarityScores.txt")
+#relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/Postprocessing/data/relevancyScores.txt")
+relevance <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/ViewFilter/Processing/SimilarityScores.txt")
 relevance[, 2] <- as.character(relevance[, 2])
 
 #c <- c()
 
 # go over all locations
-imgPath <- "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\descvis\\img\\"
+#imgPath <- "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\descvis\\img\\"
+imgPath <- "/Volumes/My Passport for Mac/div-2014/devset/descvis/img/"
 lines <- c()
 for(i in 1:length(xml_data)) {
   # get some parameter
@@ -55,9 +58,10 @@ for(i in 1:length(xml_data)) {
   visual <- merge(visual, lbp, by="V1")
   visual <- merge(visual, lbp3, by="V1")
   
-  rela <- relevance[, c(2, 3)]
-  colnames(rela) <- c("V1", "V2")
-  visual <- merge(visual, rela, by="V1")
+  # include tf-idf
+  #rela <- relevance[, c(2, 3)]
+  #colnames(rela) <- c("V1", "V2")
+  #visual <- merge(visual, rela, by="V1")
   
   # delete all rows which pic id in visual is not in relevance
   visual <- visual[visual[, 1] %in% relevance[, 2], ]
@@ -87,9 +91,8 @@ for(i in 1:length(xml_data)) {
     if(!(mostImportantPhoto[1] %in% list) && mostImportantPhoto[1] != 0) {
       list <- append(list, mostImportantPhoto[1])
       # write in result  file
-      
       lines <- rbind(lines,
-                     cbind(number, "0", mostImportantPhoto[1], j, mostImportantPhoto[2], "0"))
+                     cbind(number, "0", mostImportantPhoto[1], j, "0", mostImportantPhoto[2]))
       
       j <- j + 1
     }
@@ -98,7 +101,7 @@ for(i in 1:length(xml_data)) {
 
 # write to result file
 write.table(lines,
-            file="C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\project\\MSR\\Diversity\\output\\result.txt",
+            file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Diversity/outputDevset/result.txt",
             append=FALSE,
             col.names=FALSE,
             row.names=FALSE,
