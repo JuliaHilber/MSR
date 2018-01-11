@@ -1,6 +1,6 @@
 library(stringr)
 
-poiPath <- '/Volumes/My Passport for Mac/div-2014/devset/desctxt/devset_textTermsPerPOI.wFolderNames.txt'
+poiPath <- 'C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/testset/desctxt/testset_textTermsPerPOI.wFolderNames.txt'
 poiData <- readLines(con = poiPath)
 
 
@@ -15,4 +15,4 @@ for (line in poiData) {
   poiList[[monument]] <- data.frame(terms, tfidfs)
 }
 
-save(poiList, file = "/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/data/poiList.RData")
+save(poiList, file = "C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/TFIDF/data/poiList.RData")

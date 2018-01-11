@@ -1,11 +1,27 @@
 # load some files 
 require(XML)
 require(stringr)
-data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml")
+data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/testset/testset_topics.xml")
 xml_data <- xmlToList(data)
 
 # output file
-sink("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Location/location_filter_result.txt")
+sink("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/resultfiles/location_filter_result.txt")
+
+# function for calculating the distance in kilometers between two points
+earth.dist <- function (long1, lat1, long2, lat2)  {
+  rad <- pi/180
+  a1 <- lat1 * rad
+  a2 <- long1 * rad
+  b1 <- lat2 * rad
+  b2 <- long2 * rad
+  dlon <- b2 - a2
+  dlat <- b1 - a1
+  a <- (sin(dlat/2))^2 + cos(a1) * cos(b1) * (sin(dlon/2))^2
+  c <- 2 * atan2(sqrt(a), sqrt(1 - a))
+  R <- 6378.145
+  d <- R * c
+  return(d)
+}
 
 # go over all locations
 for(i in 1:length(xml_data)) {
@@ -17,7 +33,7 @@ for(i in 1:length(xml_data)) {
   number <- data$topic$number
   
   # load the xml file of that location
-  xml <- xmlParse(paste("/Volumes/My Passport for Mac/div-2014/devset/xml/", location, ".xml", sep=""))
+  xml <- xmlParse(paste("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/testset/xml/", location, ".xml", sep=""))
   xml <- xmlToList(xml)
   
   # location filter
@@ -57,19 +73,4 @@ for(i in 1:length(xml_data)) {
 
 # close result file
 sink()
-  
-# function for calculating the distance in kilometers between two points
-earth.dist <- function (long1, lat1, long2, lat2)  {
-  rad <- pi/180
-  a1 <- lat1 * rad
-  a2 <- long1 * rad
-  b1 <- lat2 * rad
-  b2 <- long2 * rad
-  dlon <- b2 - a2
-  dlat <- b1 - a1
-  a <- (sin(dlat/2))^2 + cos(a1) * cos(b1) * (sin(dlon/2))^2
-  c <- 2 * atan2(sqrt(a), sqrt(1 - a))
-  R <- 6378.145
-  d <- R * c
-  return(d)
-}
+

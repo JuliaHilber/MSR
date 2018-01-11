@@ -1,8 +1,8 @@
 library(stringr)
 
-load("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/data/poiList.RData")
-load("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/data/imageList.RData")
-load("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/Preprocessing/preprocessed_result.RData")
+load("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/TFIDF/data/poiList.RData")
+load("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/TFIDF/data/imageList.RData")
+load("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/Preprocessing/preprocessed_result.RData")
 
 monumentImageScore <- list()
 for (monument in names(poiList)) {
@@ -45,7 +45,7 @@ for (monument in names(poiList)) {
 
   textfile <- c(monument, monumentImageScore[[monument]])
   write.table(textfile,
-              file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/similarityScores.txt",
+              file="C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/resultfiles/similarityScores.txt",
               append=TRUE,
               col.names=FALSE,
               row.names=FALSE,
@@ -53,4 +53,4 @@ for (monument in names(poiList)) {
               sep=" ")  
 }
 
-save(imageDataList, file = "/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/data/similarityScores.RData")
+save(imageDataList, file = "C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/TFIDF/data/similarityScores.RData")

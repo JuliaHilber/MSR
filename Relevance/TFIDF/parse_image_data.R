@@ -1,6 +1,6 @@
 library(stringr)
 
-imageDataPath <- '/Volumes/My Passport for Mac/div-2014/devset/desctxt/devset_textTermsPerImage.txt'
+imageDataPath <- 'C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/testset/desctxt/testset_textTermsPerImage.txt'
 imageData <- readLines(con = imageDataPath)
 
 imageDataList <- list()
@@ -14,4 +14,4 @@ for (line in imageData) {
   imageDataList[[imageId]] <- data.frame(terms, tfidfs)
 }
 
-save(imageDataList, file = "/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/TFIDF/data/imageList.RData")
+save(imageDataList, file = "C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/TFIDF/data/imageList.RData")
