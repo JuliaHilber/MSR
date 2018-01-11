@@ -1,23 +1,27 @@
 # load some files 
 require(XML)
 require(stringr)
-#data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/devset/devset_topics.xml")
-data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml")
+data <- xmlParse("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/div-2014/testset/testset_topics.xml")
+#data <- xmlParse("/Volumes/My Passport for Mac/div-2014/devset/devset_topics.xml")
 xml_data <- xmlToList(data)
 
 
 # load relevance score file
 #relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/Location/Preprocessing/tfidf_location_SimilarityScores.txt")
 #relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Relevance/Postprocessing/data/relevancyScores.txt")
-relevance <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/ViewFilter/Processing/SimilarityScores.txt")
+#relevance <- read.table("/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Relevance/ViewFilter/Processing/SimilarityScores.txt")
+relevance <- read.table("C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/resultfiles/relevancyScores.txt")
 relevance[, 2] <- as.character(relevance[, 2])
 
 #c <- c()
 
 # go over all locations
-#imgPath <- "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\devset\\descvis\\img\\"
-imgPath <- "/Volumes/My Passport for Mac/div-2014/devset/descvis/img/"
+imgPath <- "C:\\Users\\Alina\\Documents\\University\\Multimedia Search & Retrieval\\div-2014\\testset\\descvis\\img\\"
+#imgPath <- "/Volumes/My Passport for Mac/div-2014/devset/descvis/img/"
 lines <- c()
+
+print(paste("Start:", Sys.time()))
+
 for(i in 1:length(xml_data)) {
   # get some parameter
   data1 <- xml_data[i]
@@ -99,11 +103,14 @@ for(i in 1:length(xml_data)) {
   }
 }
 
+print(paste("End:", Sys.time()))
 # write to result file
 write.table(lines,
-            file="/Users/Julia/Documents/Universität/MultimediaSearchAndRetrieval/Projekt/MSR/Diversity/outputDevset/result.txt",
+            file="C:/Users/Alina/Documents/University/Multimedia Search & Retrieval/project/MSR/Diversity/outputTestset/result.txt",
             append=FALSE,
             col.names=FALSE,
             row.names=FALSE,
             quote=FALSE,
             sep="\t") 
+
+print(paste("Written to file:", Sys.time()))
