@@ -71,7 +71,7 @@ for(i in 1:length(xml_data)) {
   visual <- visual[visual[, 1] %in% relevance[, 2], ]
   
   # k-means
-  k <- 50
+  k <- 20
   kmeans <- kmeans(visual, k)
   
   # take the relevantest photo per cluster, begin with the greatest cluster
